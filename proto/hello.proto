@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package hello;
+
+message Req {
+  string version = 1;
+}
+message Pong {
+  string version = 1;
+}
+
+service HelloService {
+  rpc Ping (Req) returns (Pong);
+}
