@@ -15,10 +15,14 @@ spec:
         - destination:
             host: grpc-svc-v2
             subset: v1
+#          headers:
+#            request:
+#              set:
+#                x-envoy-retriable-status-codes: "1000"
 #      retries:
 #        attempts: 3
 #        perTryTimeout: 1s
-#        retryOn: internal
+#        retryOn: retriable-status-codes
     - route:
         - destination:
             host: grpc-svc

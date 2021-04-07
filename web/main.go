@@ -20,7 +20,8 @@ func myHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := context.TODO()
 	fmt.Println("web ")
 	label := r.Header.Get("label")
-	md := metadata.New(map[string]string{"label": label})
+	code := r.Header.Get("code")
+	md := metadata.New(map[string]string{"label": label, "code": code})
 	ctx = metadata.NewOutgoingContext(ctx, md)
 	pong, err := client.Ping(ctx, &hello.Req{})
 	if err != nil {
